@@ -1,0 +1,47 @@
+schema: spec-driven
+
+# Contexto del proyecto (lo lee la IA al crear artefactos; no se copia a los artefactos)
+context: |
+  IDIOMA: Todos los artefactos de OpenSpec (proposal, specs, design, tasks) y las
+  respuestas al usuario deben escribirse en ESPAÑOL. Las claves estructurales que
+  exige OpenSpec en los specs (encabezados "## ADDED Requirements", "### Requirement:",
+  "#### Scenario:" y las palabras clave normativas SHALL/MUST, WHEN/THEN/AND)
+  se conservan tal cual en inglés para que el validador funcione; el texto
+  descriptivo va en español. Los identificadores de código (nombres de archivos,
+  funciones, tipos) pueden ir en inglés o español según la convención del código.
+
+  PROYECTO: "Sísifo" es un marketplace personal de sub-apps que ayudan al usuario
+  en distintos aspectos de su vida. Cada sub-app vive bajo su propia ruta
+  (ej. /diario) y comparte tipos, componentes y servicios comunes cuando aplica.
+
+  STACK: Next.js 16 (App Router, ver node_modules/next/dist/docs/ antes de escribir
+  código: hay cambios respecto a versiones anteriores, p. ej. middleware => proxy.ts),
+  React 19, TypeScript estricto, Tailwind CSS 4. Alias de imports "@/*" desde la raíz.
+
+  PRINCIPIOS:
+  - Arquitectura limpia y modular: cada sub-app aislada; lo compartido en un espacio común.
+  - Mobile first (uso principal desde el celular); debe verse bien en iPad y Mac.
+  - Persistencia detrás de una abstracción (hoy localStorage; mañana una app externa
+    que guarda JSONs). La UI nunca accede a localStorage directamente.
+  - Se agregará autenticación más adelante: no acoplar el código a "un único usuario".
+
+# Reglas por artefacto
+rules:
+  proposal:
+    - Escribir en español.
+  specs:
+    - Escribir en español, conservando las palabras clave estructurales en inglés (ADDED/MODIFIED Requirements, Requirement, Scenario, SHALL, WHEN, THEN, AND).
+  design:
+    - Escribir en español.
+  tasks:
+    - Escribir en español.
+    - Dividir en bloques pequeños y verificables.
+
+# Guía por operación
+operations:
+  apply:
+    guidance:
+      - Comunicar el progreso y los resúmenes al usuario en español.
+  archive:
+    guidance:
+      - Resumir el resultado del archivado en español.
